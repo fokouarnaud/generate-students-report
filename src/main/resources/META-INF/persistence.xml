@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd"
+             version="2.2">
+    
+    <persistence-unit name="school-report-unit" transaction-type="RESOURCE_LOCAL">
+        <description>Unité de persistance pour l'application de gestion des bulletins scolaires</description>
+        
+        <!-- Entités -->
+        <class>com.schoolreport.core.model.Student</class>
+        <class>com.schoolreport.core.model.SchoolClass</class>
+        <class>com.schoolreport.core.model.Subject</class>
+        <class>com.schoolreport.core.model.Grade</class>
+        <class>com.schoolreport.core.model.School</class>
+        
+        <properties>
+            <!-- Les propriétés de connexion sont fournies lors de l'initialisation -->
+            
+            <!-- Propriétés Hibernate -->
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            
+            <!-- Propriétés de performance -->
+            <property name="hibernate.connection.pool_size" value="10"/>
+            <property name="hibernate.jdbc.batch_size" value="50"/>
+            <property name="hibernate.order_inserts" value="true"/>
+            <property name="hibernate.order_updates" value="true"/>
+        </properties>
+    </persistence-unit>
+</persistence>
